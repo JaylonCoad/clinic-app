@@ -27,7 +27,7 @@ public class Patient
     }
     public Patient(string id)
     {
-        var patientCopy = PatientServiceProxy.Current.Patients.FirstOrDefault(b => b?.Id == id);
+        var patientCopy = PatientServiceProxy.Current.Patients.FirstOrDefault(b => (b?.Id ?? "") == id);
         if (patientCopy != null)
         {
             Id = patientCopy.Id;

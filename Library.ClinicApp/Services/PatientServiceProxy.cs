@@ -38,20 +38,22 @@ public class PatientServiceProxy
 
     public Patient? AddOrUpdate(Patient? patient)
     {
-        if (string.IsNullOrEmpty(patient?.Id))
+        if (patient == null)
         {
-            patients.Add(patient);
+            return null;
+        }
+        var existingPatient = Patients.FirstOrDefault(p => p?.Id == patient.Id);
+        if (existingPatient != null) // existing patient found, so edit instead of add
+        {
+            var index = Patients.IndexOf(existingPatient);
+            Patients.RemoveAt(index);
+            Patients.Insert(index, patient);
         }
         else
         {
-            var patientToEdit = Patients.FirstOrDefault(b => (b?.Id ?? "") == patient.Id);
-            if (patientToEdit != null)
-            {
-                var index = Patients.IndexOf(patientToEdit);
-                Patients.RemoveAt(index);
-                patients.Insert(index, patient);
-            }
+            patients.Add(patient); // new patient
         }
+
         return patient;
     }
 

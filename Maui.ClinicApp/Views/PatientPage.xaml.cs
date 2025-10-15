@@ -18,6 +18,10 @@ public partial class PatientPage : ContentPage
     private void EditPatient(object sender, EventArgs e)
     {
         var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        if (string.IsNullOrEmpty(selectedId))
+        {
+            return;
+        }
         Shell.Current.GoToAsync($"//AddPatient?patientId={selectedId}");
     }
 

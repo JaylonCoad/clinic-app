@@ -27,7 +27,9 @@ public class PatientsViewModel : INotifyPropertyChanged
             return;
         }
         PatientServiceProxy.Current.Delete(SelectedPatient.Id);
+        SelectedPatient = null;
         NotifyPropertyChanged(nameof(Patients));
+        NotifyPropertyChanged(nameof(SelectedPatient));
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

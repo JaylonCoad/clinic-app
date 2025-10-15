@@ -31,7 +31,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-
         </ListView>
         <Button Text="Add Patient" Clicked="AddPatient"/>
         <Button Text="Edit Patient" Clicked="EditPatient"/>
