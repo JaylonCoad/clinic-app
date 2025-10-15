@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.ClinicApp.Views.PatientPage"
+             Title="PatientPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Patient Page"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <ListView
+            ItemsSource="{Binding Patients}"
+            SelectedItem="{Binding SelectedPatient}"
+        />
+        <Button Text="Add Patient" Clicked="AddPatient"/>
+        <Button Text="Edit Patient" Clicked="EditPatient"/>
+        <Button Text="Delete Patient" Clicked="DeletePatient"/>
+    </VerticalStackLayout>
+</ContentPage>

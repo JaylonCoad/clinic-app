@@ -1,0 +1,77 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Maui.ClinicApp
+build_property.ProjectDir = /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Colors.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/AddPatient.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.AddPatient.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddPatient.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddPatient.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/AddPhysician.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.AddPhysician.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddPhysician.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddPhysician.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/AppointmentPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.AppointmentPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AppointmentPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AppointmentPage.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/PatientPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.PatientPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/PatientPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/PatientPage.xaml
+
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/PhysicianPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.PhysicianPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/PhysicianPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/PhysicianPage.xaml

@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicApp", "ClinicApp\ClinicApp.csproj", "{BAB19E65-2B50-466D-8E60-A3526C4AB9A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maui.ClinicApp", "Maui.ClinicApp\Maui.ClinicApp.csproj", "{22B1967C-A9B3-4652-B308-A385307F703A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Library.ClinicApp", "Library.ClinicApp\Library.ClinicApp.csproj", "{4EF1A2C0-55C7-4BEC-9124-A734EF2B6756}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAB19E65-2B50-466D-8E60-A3526C4AB9A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB19E65-2B50-466D-8E60-A3526C4AB9A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB19E65-2B50-466D-8E60-A3526C4AB9A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB19E65-2B50-466D-8E60-A3526C4AB9A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22B1967C-A9B3-4652-B308-A385307F703A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22B1967C-A9B3-4652-B308-A385307F703A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22B1967C-A9B3-4652-B308-A385307F703A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22B1967C-A9B3-4652-B308-A385307F703A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EF1A2C0-55C7-4BEC-9124-A734EF2B6756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EF1A2C0-55C7-4BEC-9124-A734EF2B6756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EF1A2C0-55C7-4BEC-9124-A734EF2B6756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EF1A2C0-55C7-4BEC-9124-A734EF2B6756}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

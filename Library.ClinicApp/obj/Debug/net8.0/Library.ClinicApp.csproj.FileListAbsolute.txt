@@ -1,0 +1,11 @@
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/bin/Debug/net8.0/Library.ClinicApp.deps.json
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/bin/Debug/net8.0/Library.ClinicApp.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/bin/Debug/net8.0/Library.ClinicApp.pdb
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.AssemblyInfoInputs.cache
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.AssemblyInfo.cs
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.csproj.CoreCompileInputs.cache
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/refint/Library.ClinicApp.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.pdb
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/ref/Library.ClinicApp.dll

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Maui.ClinicApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Maui.ClinicApp"
+    xmlns:views="clr-namespace:Maui.ClinicApp.Views"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Maui.ClinicApp">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="PatientPage"
+        ContentTemplate="{DataTemplate views:PatientPage}"
+        Route="PatientPage" />
+    <ShellContent
+        Title="PhysicianPage"
+        ContentTemplate="{DataTemplate views:PhysicianPage}"
+        Route="PhysicianPage" />
+    <ShellContent
+        Title="AppointmentPage"
+        ContentTemplate="{DataTemplate views:AppointmentPage}"
+        Route="AppointmentPage" />
+
+</Shell>
