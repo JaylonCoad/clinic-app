@@ -12,18 +12,27 @@ public partial class PatientPage : ContentPage
 
     private void AddPatient(object sender, EventArgs e)
     {
+        Shell.Current.GoToAsync("//AddPatient?patientId=");
     }
 
     private void EditPatient(object sender, EventArgs e)
     {
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        Shell.Current.GoToAsync($"//AddPatient?patientId={selectedId}");
     }
 
     private void DeletePatient(object sender, EventArgs e)
     {
+        (BindingContext as PatientsViewModel)?.Delete();
     }
 
-    private void GoBackHome(object sender, EventArgs e)
+    private void BackToHome(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//MainPage");
+    }
+
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as PatientsViewModel)?.Refresh();
     }
 }

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui.ClinicApp.Views.PatientPage"
+             NavigatedTo="ContentPage_NavigatedTo"
              Title="PatientPage">
     <VerticalStackLayout>
         <Label 
@@ -17,7 +18,7 @@
                                 <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Name}" Grid.Column="0"/>
+                            <Label Text="{Binding Display}" Grid.Column="0"/>
                             <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
@@ -35,6 +36,6 @@
         <Button Text="Add Patient" Clicked="AddPatient"/>
         <Button Text="Edit Patient" Clicked="EditPatient"/>
         <Button Text="Delete Patient" Clicked="DeletePatient"/>
-        <Button Text="Back" Clicked="GoBackHome"/>
+        <Button Text="Back" Clicked="BackToHome"/>
     </VerticalStackLayout>
 </ContentPage>

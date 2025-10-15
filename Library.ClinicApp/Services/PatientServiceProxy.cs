@@ -36,13 +36,29 @@ public class PatientServiceProxy
         }
     }
 
-    // public Patient? AddOrUpdate(Patient? patient)
-    // {
-        
-    // }
+    public Patient? AddOrUpdate(Patient? patient)
+    {
+        if (string.IsNullOrEmpty(patient?.Id))
+        {
+            patients.Add(patient);
+        }
+        else
+        {
+            var patientToEdit = Patients.FirstOrDefault(b => (b?.Id ?? "") == patient.Id);
+            if (patientToEdit != null)
+            {
+                var index = Patients.IndexOf(patientToEdit);
+                Patients.RemoveAt(index);
+                patients.Insert(index, patient);
+            }
+        }
+        return patient;
+    }
 
-    // public Patient? Delete(string id)
-    // {
-    //     return patients;
-    // }
+    public Patient? Delete(string id)
+    {
+        var patientToDelete = patients.Where(b => b != null).FirstOrDefault(b => (b?.Id ?? "") == id);
+        patients.Remove(patientToDelete);
+        return patientToDelete;
+    }
 }
