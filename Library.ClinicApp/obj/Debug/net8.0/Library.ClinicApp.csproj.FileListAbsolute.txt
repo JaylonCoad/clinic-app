@@ -9,3 +9,4 @@
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/refint/Library.ClinicApp.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.pdb
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/ref/Library.ClinicApp.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Library.ClinicApp/obj/Debug/net8.0/Library.ClinicApp.sourcelink.json

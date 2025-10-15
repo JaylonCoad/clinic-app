@@ -21,4 +21,9 @@ public partial class PatientPage : ContentPage
     private void DeletePatient(object sender, EventArgs e)
     {
     }
+
+    private void GoBackHome(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync("//MainPage");
+    }
 }
