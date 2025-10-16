@@ -10,6 +10,7 @@ namespace Maui.ClinicApp.ViewModels;
 public class PhysiciansViewModel : INotifyPropertyChanged
 {
     public Physician? SelectedPhysician { get; set; }
+    public bool HasPhysicians => Physicians.Any(); // boolean to tell me if there are physicians available, tells us if we can bring a patientid to this page to create an appointment
     public ObservableCollection<Physician?> Physicians
     {
         get

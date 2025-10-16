@@ -46,6 +46,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Resources.S
 build_metadata.AdditionalFiles.TargetPath = Resources/Styles/Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources/Styles/Styles.xaml
 
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/AddAppointment.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.AddAppointment.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/AddAppointment.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/AddAppointment.xaml
+
 [/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/AddPatient.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.AddPatient.xaml

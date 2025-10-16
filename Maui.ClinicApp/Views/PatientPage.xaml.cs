@@ -4,10 +4,12 @@ namespace Maui.ClinicApp.Views;
 
 public partial class PatientPage : ContentPage
 {
-	public PatientPage()
+    private readonly PhysiciansViewModel _viewModel; // using dependency injection to inject the PhysiciansViewModel into this current page to check if there are patients available. this will prevent the user from trying to navigate to create an appointment without creating a physician
+	public PatientPage(PhysiciansViewModel viewModel)
 	{
         InitializeComponent();
         BindingContext = new PatientsViewModel();
+        _viewModel = viewModel;
 	}
 
     private void AddPatient(object sender, EventArgs e)
@@ -48,9 +50,8 @@ public partial class PatientPage : ContentPage
     private void SendPatientToPhysicianPage(object sender, EventArgs e)
     {
         var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
-        // we want this selected ID to be non null
-        // we also want to assure that there is at least 1 physician in the physicianpage because we need one physician
-        if (string.IsNullOrEmpty(selectedId))
+        var physiciansAvailable = _viewModel.HasPhysicians;
+        if (string.IsNullOrEmpty(selectedId) || physiciansAvailable == false) // in order to create an appointment, there must be a patient selected and an available physician
         {
             return;
         }
