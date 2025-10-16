@@ -27,6 +27,11 @@ public partial class PatientPage : ContentPage
 
     private void DeletePatient(object sender, EventArgs e)
     {
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        if (string.IsNullOrEmpty(selectedId))
+        {
+            return;
+        }
         (BindingContext as PatientsViewModel)?.Delete();
     }
 
@@ -38,5 +43,17 @@ public partial class PatientPage : ContentPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         (BindingContext as PatientsViewModel)?.Refresh();
+    }
+
+    private void SendPatientToPhysicianPage(object sender, EventArgs e)
+    {
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        // we want this selected ID to be non null
+        // we also want to assure that there is at least 1 physician in the physicianpage because we need one physician
+        if (string.IsNullOrEmpty(selectedId))
+        {
+            return;
+        }
+        Shell.Current.GoToAsync($"//PhysicianPage?patientId={selectedId}");
     }
 }

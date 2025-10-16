@@ -1,9 +1,10 @@
 using Maui.ClinicApp.ViewModels;
 
 namespace Maui.ClinicApp.Views;
-
+[QueryProperty(nameof(PatientId), "patientId")]
 public partial class PhysicianPage : ContentPage
 {
+    public string PatientId { get; set; }
 	public PhysicianPage()
 	{
         InitializeComponent();
@@ -38,5 +39,9 @@ public partial class PhysicianPage : ContentPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         (BindingContext as PhysiciansViewModel)?.Refresh();
+    }
+    private void GoToCreateAppointment(object sender, EventArgs e)
+    {
+        
     }
 }

@@ -9,6 +9,7 @@ namespace Maui.ClinicApp.ViewModels;
 public class PatientsViewModel : INotifyPropertyChanged
 {
     public Patient? SelectedPatient { get; set; }
+    public bool IsPatientSelected => SelectedPatient != null;
     public ObservableCollection<Patient?> Patients
     {
         get

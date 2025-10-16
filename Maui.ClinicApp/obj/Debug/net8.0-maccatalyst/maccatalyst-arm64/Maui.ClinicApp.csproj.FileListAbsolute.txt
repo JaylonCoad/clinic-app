@@ -254,10 +254,6 @@
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libxamarin-dotnet-nativeaot.a
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libxamarin-dotnet.a
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/libxamarin-dotnet.dylib
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Controls.HotReload.Forms.dll
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mauiimage.inputs
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mauifont.inputs
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mauisplash.inputs
@@ -306,7 +302,10 @@
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Library.ClinicApp.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Library.ClinicApp.pdb
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Maui.ClinicApp.sourcelink.json
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Library.ClinicApp.stamp
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.Maui.Controls.HotReload.Forms.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.CSharp.stamp
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.Abstractions.stamp
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Microsoft.Extensions.Configuration.stamp
