@@ -2,11 +2,39 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui.ClinicApp.Views.PhysicianPage"
+             NavigatedTo="ContentPage_NavigatedTo"
              Title="PhysicianPage">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Physician Page"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+        <ListView ItemsSource="{Binding Physicians}" SelectedItem="{Binding SelectedPhysician}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Display}" Grid.Column="0"/>
+                            <Grid Grid.Column="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Button Text="Edit" Grid.Column="0"/>
+                                <Button Text="Delete" Grid.Column="1"/>
+                            </Grid>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Add Physician" Clicked="AddPhysician"/>
+        <Button Text="Edit Physician" Clicked="EditPhysician"/>
+        <Button Text="Delete Physician" Clicked="DeletePhysician"/>
+        <Button Text="Back" Clicked="BackToHome"/>
     </VerticalStackLayout>
 </ContentPage>

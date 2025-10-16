@@ -5,7 +5,7 @@
              NavigatedTo="ContentPage_NavigatedTo"
              Title="PatientPage">
     <VerticalStackLayout>
-        <Label 
+        <Label
             Text="Patient Page"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
