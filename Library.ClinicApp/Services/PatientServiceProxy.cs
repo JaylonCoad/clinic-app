@@ -27,7 +27,6 @@ public class PatientServiceProxy
             return instance;
         }
     }
-
     public List<Patient?> Patients
     {
         get
@@ -35,7 +34,6 @@ public class PatientServiceProxy
             return patients;
         }
     }
-
     public Patient? AddOrUpdate(Patient? patient)
     {
         if (patient == null)

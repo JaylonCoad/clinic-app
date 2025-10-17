@@ -34,7 +34,7 @@
         <Button Text="Add Physician"/>
         <Button Text="Edit Physician"/>
         <Button Text="Delete Physician"/>
-        <Button Text="Create Appointment (Choose Physician)"/>
+        <Button Text="Create Appointment"/>
         <Button Text="Back" Clicked="BackToHome" />
     </VerticalStackLayout>
 </ContentPage>

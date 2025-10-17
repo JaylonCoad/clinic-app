@@ -5,8 +5,19 @@
              Title="AddAppointment">
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
+            Text="Add Appointment"
+            VerticalOptions="Center"
             HorizontalOptions="Center" />
+        <Label Text="Enter Appointment Time:"/>
+        <Entry Text="{Binding AppointmentTime}"/>
+        <Picker x:Name="myPicker">
+        <Picker.Items>
+            <x:String>"Option 1"</x:String>
+            <x:String>"Option 2"</x:String>
+            <x:String>"Option 3"</x:String>
+        </Picker.Items>
+        </Picker>
+        <Button Text="Add" Clicked="AddClicked" />
+        <Button Text="Back" Clicked="BackToAppointmentPage" />
     </VerticalStackLayout>
 </ContentPage>

@@ -22,6 +22,7 @@ public partial class PatientPage : ContentPage
         var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
         if (string.IsNullOrEmpty(selectedId))
         {
+            DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
             return;
         }
         Shell.Current.GoToAsync($"//AddPatient?patientId={selectedId}");
@@ -32,6 +33,7 @@ public partial class PatientPage : ContentPage
         var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
         if (string.IsNullOrEmpty(selectedId))
         {
+            DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
             return;
         }
         (BindingContext as PatientsViewModel)?.Delete();
@@ -51,8 +53,19 @@ public partial class PatientPage : ContentPage
     {
         var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
         var physiciansAvailable = _viewModel.HasPhysicians;
-        if (string.IsNullOrEmpty(selectedId) || physiciansAvailable == false) // in order to create an appointment, there must be a patient selected and an available physician
+        if (string.IsNullOrEmpty(selectedId) && physiciansAvailable == false)
         {
+            DisplayAlert("No Patient Selected & No Physicians Created", "Please select a Patient and Create a Physician", "Ok");
+            return;
+        }
+        else if (string.IsNullOrEmpty(selectedId))
+        {
+            DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
+            return;
+        }
+        else if (physiciansAvailable == false)
+        {
+            DisplayAlert("No Physicians Created", "Please create a Physician", "Ok");
             return;
         }
         Shell.Current.GoToAsync($"//PhysicianPage?patientId={selectedId}");

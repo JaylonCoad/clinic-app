@@ -23,10 +23,10 @@ public class PatientsViewModel : INotifyPropertyChanged
     }
     public void Delete()
     {
-        if (SelectedPatient == null)
-        {
-            return;
-        }
+        // if (SelectedPatient == null)
+        // {
+        //     return;
+        // }
         PatientServiceProxy.Current.Delete(SelectedPatient.Id);
         SelectedPatient = null;
         NotifyPropertyChanged(nameof(Patients));
