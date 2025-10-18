@@ -15,8 +15,8 @@
         <Entry Text="{Binding LicenseNumber}"/>
         <Label Text="Enter Specialization:"/>
         <Entry Text="{Binding Specialization}"/>
-        <Label Text="Enter Graduation (MM/DD/YYYY):"/>
-        <Entry Text="{Binding Graduation}"/>
+        <Label Text="Enter Graduation:"/>
+        <DatePicker Date="{Binding Graduation}"/>
         <Button Text="Add" Clicked="AddClicked"/>
         <Button Text="Back" Clicked="BackToPhysicianPage" />
     </VerticalStackLayout>

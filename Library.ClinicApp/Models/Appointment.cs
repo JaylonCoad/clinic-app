@@ -8,6 +8,7 @@ public class Appointment
     public string? Id { get; }
     public Physician? Physician { get; set; }
     public Patient? Patient { get; set; }
+    public DateOnly? AppointmentDate { get; set; }
     public DateTime? AppointmentTime { get; set; }
     public string? TimeOfDay { get; set; } // AM or PM
     public string Display
@@ -29,6 +30,7 @@ public class Appointment
             Id = appointmentCopy.Id;
             Physician = appointmentCopy.Physician;
             Patient = appointmentCopy.Patient;
+            AppointmentDate = appointmentCopy.AppointmentDate;
             AppointmentTime = appointmentCopy.AppointmentTime;
         }
     }

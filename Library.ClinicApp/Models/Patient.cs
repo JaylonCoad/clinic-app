@@ -13,7 +13,8 @@ public class Patient
     public List<string> Diagnoses { get; set; } = [];
     public List<string> Prescriptions { get; set; } = [];
     public List<Appointment> Appointments { get; set; } = [];
-    public DateOnly Birthday { get; set; }
+    public DateTime Birthday { get; set; }
+    public DateOnly BirthdayPrint => DateOnly.FromDateTime(Birthday);
     public string Display
     {
         get
@@ -24,6 +25,7 @@ public class Patient
     public Patient()
     {
         Id = GenerateId();
+        Birthday = DateTime.Today;
     }
     public Patient(string id)
     {
@@ -49,6 +51,6 @@ public class Patient
     }
     public override string ToString()
     {
-        return $"ID: {Id} || Name: {Name} || Gender: {Gender} || Race: {Race} || Address: {Address} || Birthday: {Birthday}";
+        return $"ID: {Id} || Name: {Name} || Gender: {Gender} || Race: {Race} || Address: {Address} || Birthday: {BirthdayPrint}";
     }
 }

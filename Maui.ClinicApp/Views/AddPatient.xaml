@@ -17,8 +17,8 @@
         <Entry Text="{Binding Gender}"/>
         <Label Text="Enter Address:"/>
         <Entry Text="{Binding Address}"/>
-        <Label Text="Enter Birthday (MM/DD/YYYY):"/>
-        <Entry Text="{Binding Birthday}"/>
+        <Label Text="Enter Birthday:"/>
+        <DatePicker Date="{Binding Birthday}"/>
         <Button Text="Add" Clicked="AddClicked" />
         <Button Text="Back" Clicked="BackToPatientPage" />
     </VerticalStackLayout>

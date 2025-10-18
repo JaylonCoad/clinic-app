@@ -9,7 +9,8 @@ public class Physician
     public string? Name { get; set; }
     public string? LicenseNumber { get; set; }
     public string? Specialization { get; set; }
-    public DateOnly Graduation { get; set; }
+    public DateTime Graduation { get; set; }
+    public DateOnly GraduationPrint => DateOnly.FromDateTime(Graduation);
     public List<Appointment> Appointments { get; set; } = [];
     public string Display
     {
@@ -21,6 +22,7 @@ public class Physician
     public Physician()
     {
         Id = GenerateId();
+        Graduation = DateTime.Today;
     }
     public Physician(string id)
     {
@@ -100,6 +102,6 @@ public class Physician
     // }
     public override string ToString()
     {
-        return $"ID: {Id} || Name: {Name} || License Number: {LicenseNumber} || Specialization: {Specialization} || Graduation Date: {Graduation}";
+        return $"ID: {Id} || Name: {Name} || License Number: {LicenseNumber} || Specialization: {Specialization} || Graduation Date: {GraduationPrint}";
     }
 }
