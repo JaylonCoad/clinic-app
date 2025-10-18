@@ -21,6 +21,17 @@ public class AppointmentsViewModel : INotifyPropertyChanged
     {
         NotifyPropertyChanged(nameof(Appointments));
     }
+    public void Delete()
+    {
+        if (SelectedAppointment == null)
+        {
+            return;
+        }
+        AppointmentServiceProxy.Current.Delete(SelectedAppointment.Id);
+        SelectedAppointment = null;
+        NotifyPropertyChanged(nameof(Appointments));
+        NotifyPropertyChanged(nameof(SelectedAppointment));
+    }
     public event PropertyChangedEventHandler? PropertyChanged;
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
     {

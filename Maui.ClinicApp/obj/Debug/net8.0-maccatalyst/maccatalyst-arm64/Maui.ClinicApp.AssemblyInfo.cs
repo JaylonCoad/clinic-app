@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Maui.ClinicApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+4c478b6758478f4ccd04867d1a7fa5d4200a2efd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e626539005350385e3be2987993c31feef8a879c")]
 [assembly: System.Reflection.AssemblyProductAttribute("Maui.ClinicApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Maui.ClinicApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

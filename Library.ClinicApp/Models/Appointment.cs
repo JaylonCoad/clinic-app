@@ -6,11 +6,12 @@ namespace Library.ClinicApp.Models;
 public class Appointment
 {
     public string? Id { get; }
-    public Physician? Physician { get; set; }
-    public Patient? Patient { get; set; }
-    public DateOnly? AppointmentDate { get; set; }
-    public DateTime? AppointmentTime { get; set; }
-    public string? TimeOfDay { get; set; } // AM or PM
+    public string? PhysicianId { get; set; }
+    public string? PatientId { get; set; }
+    public DateTime AppointmentDate { get; set; }
+    public DateOnly AppointmentDatePrint => DateOnly.FromDateTime(AppointmentDate);
+    public TimeOnly AppointmentTime { get; set; }
+
     public string Display
     {
         get
@@ -22,14 +23,30 @@ public class Appointment
     {
         Id = GenerateId();
     }
+    public string DisplayPhysicianName
+    {
+        get
+        {
+            var physician = PhysicianServiceProxy.Current.Physicians.FirstOrDefault(p => p?.Id == PhysicianId);
+            return physician?.Name ?? "Unknown Physician";
+        }
+    }
+    public string DisplayPatientName
+    {
+        get
+        {
+            var patient = PatientServiceProxy.Current.Patients.FirstOrDefault(p => p?.Id == PatientId);
+            return patient?.Name ?? "Unknown Patient";
+        }
+    }
     public Appointment(string id)
     {
         var appointmentCopy = AppointmentServiceProxy.Current.Appointments.FirstOrDefault(b => (b?.Id ?? "") == id);
         if (appointmentCopy != null)
         {
             Id = appointmentCopy.Id;
-            Physician = appointmentCopy.Physician;
-            Patient = appointmentCopy.Patient;
+            PhysicianId = appointmentCopy.PhysicianId;
+            PatientId = appointmentCopy.PatientId;
             AppointmentDate = appointmentCopy.AppointmentDate;
             AppointmentTime = appointmentCopy.AppointmentTime;
         }
@@ -42,6 +59,6 @@ public class Appointment
     }
     public override string ToString()
     {
-        return $"Appointment with Dr. {Physician?.Name} for {Patient?.Name} at {AppointmentTime?.ToShortDateString()} {AppointmentTime?.ToShortTimeString()}";
+        return $"Appointment with Dr. {DisplayPhysicianName} for {DisplayPatientName} at {AppointmentTime} on {AppointmentDatePrint}";
     }
 }

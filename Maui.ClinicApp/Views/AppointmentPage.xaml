@@ -31,10 +31,9 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Add Physician"/>
-        <Button Text="Edit Physician"/>
-        <Button Text="Delete Physician"/>
-        <Button Text="Create Appointment"/>
+        <Button Text="Add Appointment" Clicked="AddAppointment" />
+        <Button Text="Edit Appointment" Clicked="EditAppointment" />
+        <Button Text="Delete Appointment" Clicked="DeleteAppointment" />
         <Button Text="Back" Clicked="BackToHome" />
     </VerticalStackLayout>
 </ContentPage>
