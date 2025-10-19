@@ -44,9 +44,12 @@ public class AppointmentServiceProxy
         var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
         if (existingAppointment != null) // existing appointment found, so edit instead of add
         {
-            var index = Appointments.IndexOf(existingAppointment);
-            Appointments.RemoveAt(index);
-            Appointments.Insert(index, appointment);
+            if (IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(appointment.PhysicianId, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint))
+            {
+                var index = Appointments.IndexOf(existingAppointment);
+                Appointments.RemoveAt(index);
+                Appointments.Insert(index, appointment);
+            }
         }
         else
         {

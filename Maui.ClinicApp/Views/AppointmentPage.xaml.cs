@@ -28,7 +28,7 @@ public partial class AppointmentPage : ContentPage
             DisplayAlert("No Appointment Selected", "Please select an Appointment", "Ok");
             return;
         }
-        Shell.Current.GoToAsync($"//AddAppointment?appointmentId={selectedId}");
+        Shell.Current.GoToAsync($"//AddAppointment?appointmentId={selectedId}&isAdding=false");
     }
 
     private void DeleteAppointment(object sender, EventArgs e)

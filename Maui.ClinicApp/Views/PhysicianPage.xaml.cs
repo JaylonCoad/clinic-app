@@ -65,6 +65,6 @@ public partial class PhysicianPage : ContentPage
             DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
             return;
         }
-        Shell.Current.GoToAsync($"//AddAppointment?patientId={PatientId}&physicianId={selectedId}");
+        Shell.Current.GoToAsync($"//AddAppointment?patientId={PatientId}&physicianId={selectedId}&isAdding=true");
     }
 }
