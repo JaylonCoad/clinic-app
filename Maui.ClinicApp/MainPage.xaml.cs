@@ -12,7 +12,6 @@ public partial class MainPage : ContentPage
     {
         Shell.Current.GoToAsync("//PatientPage");
     }
-
     private void GoToPhysicianView(object sender, EventArgs e)
     {
         Shell.Current.GoToAsync("//PhysicianPage");
@@ -22,6 +21,5 @@ public partial class MainPage : ContentPage
     {
         Shell.Current.GoToAsync("//AppointmentPage");
     }
-
 }
 

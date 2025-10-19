@@ -50,7 +50,7 @@ public class AppointmentServiceProxy
         }
         else
         {
-            if (IsTimeValid(appointment.AppointmentTime) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(appointment.PhysicianId, appointment.AppointmentDatePrint, appointment.AppointmentTime))
+            if (IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(appointment.PhysicianId, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint))
             {
                 appointments.Add(appointment); // new appointment
             }
@@ -59,8 +59,8 @@ public class AppointmentServiceProxy
     }
     public bool IsTimeValid(TimeOnly time)
     {
-        var earliestTime = new TimeOnly(8, 0, 0);
-        var latestTime = new TimeOnly(16, 0, 0);
+        TimeOnly earliestTime = new(8, 0, 0);
+        TimeOnly latestTime = new(16, 0, 0);
         bool withinBounds = time >= earliestTime && time <= latestTime;
         bool onHour = time.Minute == 0 && time.Second == 0;
         return withinBounds && onHour;
@@ -83,7 +83,7 @@ public class AppointmentServiceProxy
         {
             return true;
         }
-        bool conflictExists = physician.Appointments.Any(existingAppointment => existingAppointment.AppointmentDatePrint == newAppointmentDate && existingAppointment.AppointmentTime == newAppointmentTime);
+        bool conflictExists = physician.Appointments.Any(existingAppointment => existingAppointment.AppointmentDatePrint == newAppointmentDate && existingAppointment.AppointmentTimePrint == newAppointmentTime);
         return !conflictExists;
     }
     public Appointment? Delete(string id)

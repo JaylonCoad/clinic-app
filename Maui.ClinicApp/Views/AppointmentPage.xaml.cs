@@ -6,7 +6,8 @@ public partial class AppointmentPage : ContentPage
 {
 	public AppointmentPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
+        BindingContext = new AppointmentsViewModel();
 	}
 
     private void BackToHome(object sender, EventArgs e)
@@ -39,5 +40,9 @@ public partial class AppointmentPage : ContentPage
             return;
         }
         (BindingContext as AppointmentsViewModel)?.Delete();
+    }
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as AppointmentsViewModel)?.Refresh();
     }
 }

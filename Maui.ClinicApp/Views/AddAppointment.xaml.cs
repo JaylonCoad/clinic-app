@@ -16,7 +16,14 @@ public partial class AddAppointment : ContentPage
 
     private void AddClicked(object sender, EventArgs e)
     {
-        AppointmentServiceProxy.Current.AddOrUpdate(BindingContext as Appointment);
+        var newAppointment = new Appointment
+        {
+            PatientId = PatientId,
+            PhysicianId = PhysicianId,
+            AppointmentDate = DatePickerControl.Date,
+            AppointmentTime = TimePickerControl.Time
+        };
+        AppointmentServiceProxy.Current.AddOrUpdate(newAppointment);
         Shell.Current.GoToAsync("//AppointmentPage");
     }
 
@@ -24,11 +31,23 @@ public partial class AddAppointment : ContentPage
     {
         Shell.Current.GoToAsync("//AppointmentPage");
     }
-    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
-    {
-        var newAppointment = new Appointment();
-        newAppointment.PatientId = this.PatientId;
-        newAppointment.PhysicianId = this.PhysicianId;
-        BindingContext = newAppointment;
-    }
+    // protected override void OnAppearing()
+    // {
+    //     base.OnAppearing();
+
+    //     BindingContext = new Appointment
+    //     {
+    //         PatientId = PatientId,
+    //         PhysicianId = PhysicianId
+    //     };
+    // }
+    // private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    // {
+    //     var newAppointment = new Appointment
+    //     {
+    //         PatientId = PatientId,
+    //         PhysicianId = PhysicianId
+    //     };
+    //     BindingContext = newAppointment;
+    // }
 }

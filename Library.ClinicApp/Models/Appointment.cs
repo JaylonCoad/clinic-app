@@ -10,7 +10,8 @@ public class Appointment
     public string? PatientId { get; set; }
     public DateTime AppointmentDate { get; set; }
     public DateOnly AppointmentDatePrint => DateOnly.FromDateTime(AppointmentDate);
-    public TimeOnly AppointmentTime { get; set; }
+    public TimeSpan AppointmentTime { get; set; }
+    public TimeOnly AppointmentTimePrint => TimeOnly.FromTimeSpan(AppointmentTime);
 
     public string Display
     {

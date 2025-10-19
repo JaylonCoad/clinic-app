@@ -13,7 +13,7 @@
                 SemanticProperties.HeadingLevel="Level1" />
             <Button Text="Patient View" Clicked="GoToPatientView"/>
             <Button Text="Physician View" Clicked="GoToPhysicianView"/>
-            <Button Text="Appointment View" Clicked="GoToAppointmentView"/>
+            <Button Text="Appointment View" Clicked="GoToAppointmentView" />
         </VerticalStackLayout>
     </ScrollView>
 

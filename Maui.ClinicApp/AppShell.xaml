@@ -36,8 +36,4 @@
         Title="AddAppointment"
         ContentTemplate="{DataTemplate views:AddAppointment}"
         Route="AddAppointment" />
-    <ShellContent
-        Title="AppointmentPage"
-        ContentTemplate="{DataTemplate views:AppointmentPage}"
-        Route="AppointmentPage" />
 </Shell>

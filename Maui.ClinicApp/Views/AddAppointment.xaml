@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Maui.ClinicApp.Views.AddAppointment"
-             NavigatedTo="ContentPage_NavigatedTo"
              Title="Add Appointment">
     <VerticalStackLayout>
         <Label 
@@ -10,9 +9,9 @@
             VerticalOptions="Center"
             HorizontalOptions="Center" />
         <Label Text="Enter Appointment Date:"/>
-        <DatePicker Date="{Binding AppointmentDate}"/>
+        <DatePicker x:Name="DatePickerControl" Date="{Binding AppointmentDate}"/>
         <Label Text="Enter Appointment Time:"/>
-        <TimePicker Time="{Binding AppointmentTime}" />
+        <TimePicker x:Name="TimePickerControl" Time="{Binding AppointmentTime}" />
         <Button Text="Add" Clicked="AddClicked" />
         <Button Text="Back" Clicked="BackToAppointmentPage" />
     </VerticalStackLayout>

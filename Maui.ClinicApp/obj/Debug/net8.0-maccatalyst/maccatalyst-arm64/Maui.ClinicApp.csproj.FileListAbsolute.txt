@@ -306,4 +306,3 @@
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.TapContract.dll
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
-/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/resourcestamps/Library.ClinicApp.stamp
