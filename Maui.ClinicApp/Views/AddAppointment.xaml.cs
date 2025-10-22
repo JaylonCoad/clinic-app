@@ -3,39 +3,33 @@ using Library.ClinicApp.Models;
 using Library.ClinicApp.Services;
 
 namespace Maui.ClinicApp.Views;
+
 [QueryProperty(nameof(PatientId), "patientId")]
 [QueryProperty(nameof(PhysicianId), "physicianId")]
 [QueryProperty(nameof(IsAdding), "isAdding")]
 [QueryProperty(nameof(AppointmentToEditId), "appointmentId")]
 public partial class AddAppointment : ContentPage
 {
-    public string PatientId { get; set; }
-    public string PhysicianId { get; set; }
+    public string? PatientId { get; set; }
+    public string? PhysicianId { get; set; }
     public string? IsAdding { get; set; }
-    public string AppointmentToEditId { get; set; }
-	public AddAppointment()
-	{
-		InitializeComponent();
-	}
+    public string? AppointmentToEditId { get; set; }
+    public AddAppointment()
+    {
+        InitializeComponent();
+    }
 
     private void AddClicked(object sender, EventArgs e)
     {
         if (IsAdding == "true")
         {
-            var newAppointment = new Appointment
+            if (BindingContext is Appointment newAppointment)
             {
-                PatientId = PatientId,
-                PhysicianId = PhysicianId,
-                AppointmentDate = DatePickerControl.Date,
-                AppointmentTime = TimePickerControl.Time
-            };
-            AppointmentServiceProxy.Current.AddOrUpdate(newAppointment);
+                newAppointment.PhysicianId = PhysicianId;
+                newAppointment.PatientId = PatientId;
+            }
         }
-        else
-        {
-            var existingAppointment = new Appointment(AppointmentToEditId);
-            AppointmentServiceProxy.Current.AddOrUpdate(existingAppointment);
-        }
+        AppointmentServiceProxy.Current.AddOrUpdate(BindingContext as Appointment);
         Shell.Current.GoToAsync("//AppointmentPage");
     }
 
@@ -44,22 +38,13 @@ public partial class AddAppointment : ContentPage
         Shell.Current.GoToAsync("//AppointmentPage");
     }
 
-    // private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
-    // {
-    //     Appointment appointmentToLoad;
-    //     if (string.IsNullOrEmpty(AppointmentId)) // ADD MODE
-    //     {
-    //         appointmentToLoad = new Appointment();
-    //     }
-    //     else // EDIT MODE
-    //     {
-    //         appointmentToLoad = new Appointment(AppointmentId);
-    //     }
-    //     appointmentToLoad.PatientId = PatientId;
-    //     appointmentToLoad.PhysicianId = PhysicianId;
-
-    //     // 4. Set the BindingContext to the object, ensuring it's never null
-    //     BindingContext = appointmentToLoad;
-    // }
-    
+    private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        Appointment appointmentToLoad = new();
+        if (!string.IsNullOrEmpty(AppointmentToEditId)) // EDIT MODE
+        {
+            appointmentToLoad = new Appointment(AppointmentToEditId);
+        }
+        BindingContext = appointmentToLoad;
+    }
 }

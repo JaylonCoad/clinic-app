@@ -32,3 +32,5 @@
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/API.Clinic/obj/Debug/net8.0/API.Clinic.pdb
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/API.Clinic/obj/Debug/net8.0/API.Clinic.genruntimeconfig.cache
 /Users/jayloncoad/Desktop/COP4870/ClinicApp/API.Clinic/obj/Debug/net8.0/ref/API.Clinic.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/API.Clinic/bin/Debug/net8.0/Library.ClinicApp.dll
+/Users/jayloncoad/Desktop/COP4870/ClinicApp/API.Clinic/bin/Debug/net8.0/Library.ClinicApp.pdb
