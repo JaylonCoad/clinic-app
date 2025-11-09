@@ -23,7 +23,6 @@ public class PatientServiceProxy
                     instance = new PatientServiceProxy();
                 }
             }
-
             return instance;
         }
     }

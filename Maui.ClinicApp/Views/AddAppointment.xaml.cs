@@ -23,7 +23,8 @@ public partial class AddAppointment : ContentPage
     {
         if (IsAdding == "true")
         {
-            if (BindingContext is Appointment newAppointment)
+            var newAppointment = BindingContext as Appointment;
+            if (newAppointment != null)
             {
                 newAppointment.PhysicianId = PhysicianId;
                 newAppointment.PatientId = PatientId;
@@ -41,7 +42,11 @@ public partial class AddAppointment : ContentPage
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
     {
         Appointment appointmentToLoad = new();
-        if (!string.IsNullOrEmpty(AppointmentToEditId)) // EDIT MODE
+        if (string.IsNullOrEmpty(AppointmentToEditId)) // ADD MODE
+        {
+            appointmentToLoad.AppointmentDate = DateTime.Today;
+        }
+        else // EDIT MODE
         {
             appointmentToLoad = new Appointment(AppointmentToEditId);
         }

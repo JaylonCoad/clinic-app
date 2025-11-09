@@ -6,10 +6,10 @@ namespace Library.ClinicApp.Services;
 
 public class AppointmentServiceProxy
 {
-    private List<Appointment?> appointments;
+    private List<Appointment> appointments;
     private AppointmentServiceProxy()
     {
-        appointments = new List<Appointment?>();
+        appointments = new List<Appointment>();
     }
     private static AppointmentServiceProxy? instance;
     private static object instanceLock = new object();
@@ -24,11 +24,10 @@ public class AppointmentServiceProxy
                     instance = new AppointmentServiceProxy();
                 }
             }
-
             return instance;
         }
     }
-    public List<Appointment?> Appointments
+    public List<Appointment> Appointments
     {
         get
         {
@@ -41,21 +40,34 @@ public class AppointmentServiceProxy
         {
             return null;
         }
+        var requestedPhysician = PhysicianServiceProxy.Current.Physicians.FirstOrDefault(p => p?.Id == appointment.PhysicianId);
+        var requestedPatient = PatientServiceProxy.Current.Patients.FirstOrDefault(p => p?.Id == appointment.PatientId);
+        if (requestedPatient == null || requestedPhysician == null)
+        {
+            return null;
+        }
         var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
+        var checkConditions = IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(requestedPhysician.Id, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint);
         if (existingAppointment != null) // existing appointment found, so edit instead of add
         {
-            if (IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(appointment.PhysicianId, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint))
+            if (checkConditions)
             {
                 var index = Appointments.IndexOf(existingAppointment);
                 Appointments.RemoveAt(index);
                 Appointments.Insert(index, appointment);
+                requestedPatient?.Appointments.Remove(existingAppointment);
+                requestedPhysician?.Appointments.Remove(existingAppointment);
+                requestedPatient?.Appointments.Add(appointment);
+                requestedPhysician?.Appointments.Add(appointment);
             }
         }
         else
         {
-            if (IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(appointment.PhysicianId, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint))
+            if (checkConditions)
             {
                 appointments.Add(appointment); // new appointment
+                requestedPatient?.Appointments.Add(appointment);
+                requestedPhysician?.Appointments.Add(appointment);
             }
         }
         return appointment;
@@ -73,11 +85,7 @@ public class AppointmentServiceProxy
         DateOnly earliestDate = DateOnly.FromDateTime(DateTime.Today.AddDays(7));
         DateOnly latestDate = DateOnly.FromDateTime(DateTime.Today.AddDays(30));
         bool IsWeekday = date.DayOfWeek != DayOfWeek.Saturday && date.DayOfWeek != DayOfWeek.Sunday;
-        if (date <= latestDate && date >= earliestDate && IsWeekday)
-        {
-            return true;
-        }
-        return false;
+        return date <= latestDate && date >= earliestDate && IsWeekday;
     }
     public bool IsPhysicianAvailable(string physicianId, DateOnly newAppointmentDate, TimeOnly newAppointmentTime)
     {
@@ -91,8 +99,11 @@ public class AppointmentServiceProxy
     }
     public Appointment? Delete(string id)
     {
-        var appointmentToDelete = appointments.Where(b => b != null).FirstOrDefault(b => (b?.Id ?? "") == id);
-        appointments.Remove(appointmentToDelete);
+        var appointmentToDelete = appointments.FirstOrDefault(b => b.Id == id);
+        if (appointmentToDelete != null)
+        {
+            appointments.Remove(appointmentToDelete);
+        }
         return appointmentToDelete;
     }
 }
