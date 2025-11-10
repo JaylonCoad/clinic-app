@@ -9,13 +9,13 @@ namespace Maui.ClinicApp.ViewModels;
 
 public class PhysiciansViewModel : INotifyPropertyChanged
 {
-    public Physician? SelectedPhysician { get; set; }
+    public PhysicianViewModel? SelectedPhysician { get; set; }
     public bool HasPhysicians => Physicians.Any(); // boolean to tell me if there are physicians available, tells us if we can bring a patientid to this page to create an appointment
-    public ObservableCollection<Physician?> Physicians
+    public ObservableCollection<PhysicianViewModel?> Physicians
     {
         get
         {
-            return new ObservableCollection<Physician?>(PhysicianServiceProxy.Current.Physicians);
+            return new ObservableCollection<PhysicianViewModel?>(PhysicianServiceProxy.Current.Physicians.Select(b => new PhysicianViewModel (b)));
         }
     }
     public void Refresh()
@@ -24,11 +24,11 @@ public class PhysiciansViewModel : INotifyPropertyChanged
     }
     public void Delete()
     {
-        if (SelectedPhysician == null)
+        if (string.IsNullOrEmpty(SelectedPhysician?.Model?.Id)) // changed this from SelectedPhysician
         {
             return;
         }
-        PhysicianServiceProxy.Current.Delete(SelectedPhysician.Id);
+        PhysicianServiceProxy.Current.Delete(SelectedPhysician.Model.Id);
         SelectedPhysician = null;
         NotifyPropertyChanged(nameof(Physicians));
         NotifyPropertyChanged(nameof(SelectedPhysician));

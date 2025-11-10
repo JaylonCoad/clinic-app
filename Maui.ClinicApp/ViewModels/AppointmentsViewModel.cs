@@ -9,12 +9,12 @@ namespace Maui.ClinicApp.ViewModels;
 
 public class AppointmentsViewModel : INotifyPropertyChanged
 {
-    public Appointment? SelectedAppointment { get; set; }
-    public ObservableCollection<Appointment?> Appointments
+    public AppointmentViewModel? SelectedAppointment { get; set; }
+    public ObservableCollection<AppointmentViewModel?> Appointments
     {
         get
         {
-            return new ObservableCollection<Appointment?>(AppointmentServiceProxy.Current.Appointments);
+            return new ObservableCollection<AppointmentViewModel?>(AppointmentServiceProxy.Current.Appointments.Select(b => new AppointmentViewModel (b)));
         }
     }
     public void Refresh()
@@ -23,11 +23,11 @@ public class AppointmentsViewModel : INotifyPropertyChanged
     }
     public void Delete()
     {
-        if (SelectedAppointment == null)
+        if (string.IsNullOrEmpty(SelectedAppointment?.Model?.Id)) // changed this from SelectedAppointment
         {
             return;
         }
-        AppointmentServiceProxy.Current.Delete(SelectedAppointment.Id);
+        AppointmentServiceProxy.Current.Delete(SelectedAppointment.Model.Id);
         SelectedAppointment = null;
         NotifyPropertyChanged(nameof(Appointments));
         NotifyPropertyChanged(nameof(SelectedAppointment));

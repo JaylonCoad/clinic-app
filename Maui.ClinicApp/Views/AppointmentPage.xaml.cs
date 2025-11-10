@@ -22,7 +22,7 @@ public partial class AppointmentPage : ContentPage
 
     private void EditAppointment(object sender, EventArgs e)
     {
-        var selectedId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Id ?? "";
+        var selectedId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Model?.Id;
         if (string.IsNullOrEmpty(selectedId))
         {
             DisplayAlert("No Appointment Selected", "Please select an Appointment", "Ok");
@@ -33,7 +33,7 @@ public partial class AppointmentPage : ContentPage
 
     private void DeleteAppointment(object sender, EventArgs e)
     {
-        var selectedId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Id ?? "";
+        var selectedId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Model?.Id;
         if (string.IsNullOrEmpty(selectedId))
         {
             DisplayAlert("No Appointment Selected", "Please select an Appointment", "Ok");
@@ -42,6 +42,11 @@ public partial class AppointmentPage : ContentPage
         (BindingContext as AppointmentsViewModel)?.Delete();
     }
     private void ContentPage_NavigatedTo(object sender, NavigatedToEventArgs e)
+    {
+        (BindingContext as AppointmentsViewModel)?.Refresh();
+    }
+
+    private void RefreshClicked(object sender, EventArgs e)
     {
         (BindingContext as AppointmentsViewModel)?.Refresh();
     }
