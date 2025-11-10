@@ -8,13 +8,13 @@ namespace Maui.ClinicApp.ViewModels;
 
 public class PatientsViewModel : INotifyPropertyChanged
 {
-    public Patient? SelectedPatient { get; set; }
+    public PatientViewModel? SelectedPatient { get; set; }
     public bool IsPatientSelected => SelectedPatient != null;
-    public ObservableCollection<Patient?> Patients
+    public ObservableCollection<PatientViewModel?> Patients
     {
         get
         {
-            return new ObservableCollection<Patient?>(PatientServiceProxy.Current.Patients);
+            return new ObservableCollection<PatientViewModel?>(PatientServiceProxy.Current.Patients.Select(b => new PatientViewModel (b)));
         }
     }
     public void Refresh()
@@ -23,11 +23,11 @@ public class PatientsViewModel : INotifyPropertyChanged
     }
     public void Delete()
     {
-        if (SelectedPatient == null)
+        if (string.IsNullOrEmpty(SelectedPatient?.Model?.Id)) // changed this from SelectedPatient
         {
             return;
         }
-        PatientServiceProxy.Current.Delete(SelectedPatient.Id);
+        PatientServiceProxy.Current.Delete(SelectedPatient.Model.Id); // this should never be null
         SelectedPatient = null;
         NotifyPropertyChanged(nameof(Patients));
         NotifyPropertyChanged(nameof(SelectedPatient));

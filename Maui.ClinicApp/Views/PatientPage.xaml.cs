@@ -19,7 +19,7 @@ public partial class PatientPage : ContentPage
 
     private void EditPatient(object sender, EventArgs e)
     {
-        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Model?.Id;
         if (string.IsNullOrEmpty(selectedId))
         {
             DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
@@ -30,7 +30,7 @@ public partial class PatientPage : ContentPage
 
     private void DeletePatient(object sender, EventArgs e)
     {
-        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Model?.Id;
         if (string.IsNullOrEmpty(selectedId))
         {
             DisplayAlert("No Patient Selected", "Please select a Patient", "Ok");
@@ -51,7 +51,7 @@ public partial class PatientPage : ContentPage
 
     private void SendPatientToPhysicianPage(object sender, EventArgs e)
     {
-        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? "";
+        var selectedId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Model?.Id;
         var physiciansAvailable = _viewModel.HasPhysicians;
         if (string.IsNullOrEmpty(selectedId) && physiciansAvailable == false)
         {
@@ -69,5 +69,10 @@ public partial class PatientPage : ContentPage
             return;
         }
         Shell.Current.GoToAsync($"//PhysicianPage?patientId={selectedId}");
+    }
+
+    private void RefreshClicked(object sender, EventArgs e)
+    {
+        (BindingContext as PatientsViewModel)?.Refresh();
     }
 }
