@@ -72,4 +72,16 @@ public partial class PhysicianPage : ContentPage
     {
         (BindingContext as PhysiciansViewModel)?.Refresh();
     }
+
+    private void SortByGraduationAscending(object sender, EventArgs e)
+    {
+        (BindingContext as PhysiciansViewModel)?.SortByGraduationAscending();
+        (BindingContext as PhysiciansViewModel)?.Refresh();
+    }
+
+    private void SortByGraduationDescending(object sender, EventArgs e)
+    {
+        (BindingContext as PhysiciansViewModel)?.SortByGraduationDescending();
+        (BindingContext as PhysiciansViewModel)?.Refresh();
+    }
 }

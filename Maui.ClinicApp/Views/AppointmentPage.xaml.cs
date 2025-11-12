@@ -50,4 +50,16 @@ public partial class AppointmentPage : ContentPage
     {
         (BindingContext as AppointmentsViewModel)?.Refresh();
     }
+
+    private void SortByAppointmentAscending(object sender, EventArgs e)
+    {
+        (BindingContext as AppointmentsViewModel)?.SortByAppointmentDateAscending();
+        (BindingContext as AppointmentsViewModel)?.Refresh();
+    }
+
+    private void SortByAppointmentDescending(object sender, EventArgs e)
+    {
+        (BindingContext as AppointmentsViewModel)?.SortByAppointmentDateDescending();
+        (BindingContext as AppointmentsViewModel)?.Refresh();
+    }
 }

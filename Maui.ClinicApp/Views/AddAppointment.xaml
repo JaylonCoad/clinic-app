@@ -9,11 +9,11 @@
             Text="Add Appointment"
             VerticalOptions="Center"
             HorizontalOptions="Center" />
-        <Label Text="Enter Appointment Date:"/>
+        <Label Text="Enter Appointment Date:" FontFamily="OpenSansSemibold"/>
         <DatePicker Date="{Binding AppointmentDate}"/>
-        <Label Text="Enter Appointment Time:"/>
+        <Label Text="Enter Appointment Time:" FontFamily="OpenSansSemibold"/>
         <TimePicker Time="{Binding AppointmentTime}" />
-        <Button Text="Add" Clicked="AddClicked" />
-        <Button Text="Back" Clicked="BackToAppointmentPage" />
+        <Button Text="Add" Clicked="AddClicked" FontFamily="OpenSansSemibold"/>
+        <Button Text="Back" Clicked="BackToAppointmentPage" FontFamily="OpenSansSemibold"/>
     </VerticalStackLayout>
 </ContentPage>

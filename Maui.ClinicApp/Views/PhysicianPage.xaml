@@ -24,18 +24,20 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}"/>
-                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked"/>
+                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" FontFamily="OpenSansSemibold"/>
+                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked" FontFamily="OpenSansSemibold"/>
                             </Grid>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Add Physician" Clicked="AddPhysician"/>
-        <Button Text="Edit Physician" Clicked="EditPhysician"/>
-        <Button Text="Delete Physician" Clicked="DeletePhysician"/>
-        <Button Text="Create Appointment" Clicked="GoToCreateAppointment"/>
-        <Button Text="Back" Clicked="BackToHome"/>
+        <Button Text="Add Physician" Clicked="AddPhysician" FontFamily="OpenSansSemibold"/>
+        <Button Text="Edit Physician" Clicked="EditPhysician" FontFamily="OpenSansSemibold"/>
+        <Button Text="Delete Physician" Clicked="DeletePhysician" FontFamily="OpenSansSemibold"/>
+        <Button Text="Create Appointment" Clicked="GoToCreateAppointment" FontFamily="OpenSansSemibold"/>
+        <Button Text="Sort by Graduation Date (Ascending)" Clicked="SortByGraduationAscending" FontFamily="OpenSansSemibold"/>
+        <Button Text="Sort by Graduation Date (Descending)" Clicked="SortByGraduationDescending" FontFamily="OpenSansSemibold"/>
+        <Button Text="Back" Clicked="BackToHome" FontFamily="OpenSansSemibold"/>
     </VerticalStackLayout>
 </ContentPage>

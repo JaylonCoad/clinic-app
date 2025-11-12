@@ -9,15 +9,15 @@
             Text="Add Physician"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Label Text="Enter Name:"/>
+        <Label Text="Enter Name:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Name}"/>
-        <Label Text="Enter License Number:"/>
+        <Label Text="Enter License Number:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding LicenseNumber}"/>
-        <Label Text="Enter Specialization:"/>
+        <Label Text="Enter Specialization:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Specialization}"/>
-        <Label Text="Enter Graduation:"/>
+        <Label Text="Enter Graduation:" FontFamily="OpenSansSemibold"/>
         <DatePicker Date="{Binding Graduation}"/>
-        <Button Text="Add" Clicked="AddClicked"/>
-        <Button Text="Back" Clicked="BackToPhysicianPage" />
+        <Button Text="Add" Clicked="AddClicked" FontFamily="OpenSansSemibold"/>
+        <Button Text="Back" Clicked="BackToPhysicianPage" FontFamily="OpenSansSemibold"/>
     </VerticalStackLayout>
 </ContentPage>

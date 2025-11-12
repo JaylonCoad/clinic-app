@@ -34,6 +34,16 @@ public class PhysiciansViewModel : INotifyPropertyChanged
         NotifyPropertyChanged(nameof(SelectedPhysician));
     }
 
+    public void SortByGraduationAscending()
+    {
+        PhysicianServiceProxy.Current.SortPhysiciansAscending();
+    }
+
+    public void SortByGraduationDescending()
+    {
+        PhysicianServiceProxy.Current.SortPhysiciansDescending();
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
     {

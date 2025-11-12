@@ -32,6 +32,17 @@ public class AppointmentsViewModel : INotifyPropertyChanged
         NotifyPropertyChanged(nameof(Appointments));
         NotifyPropertyChanged(nameof(SelectedAppointment));
     }
+
+    public void SortByAppointmentDateAscending()
+    {
+        AppointmentServiceProxy.Current.SortAppointmentsAscending();
+    }
+
+    public void SortByAppointmentDateDescending()
+    {
+        AppointmentServiceProxy.Current.SortAppointmentsDescending();
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
     private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
     {

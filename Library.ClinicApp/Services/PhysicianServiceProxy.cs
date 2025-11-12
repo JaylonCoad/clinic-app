@@ -62,4 +62,14 @@ public class PhysicianServiceProxy
         physicians.Remove(physicianToDelete);
         return physicianToDelete;
     }
+
+    public void SortPhysiciansAscending()
+    {
+        physicians = physicians.OrderBy(p => p?.Graduation).ToList();
+    }
+
+    public void SortPhysiciansDescending()
+    {
+        physicians = physicians.OrderByDescending(p => p?.Graduation).ToList();
+    }
 }

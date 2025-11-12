@@ -65,6 +65,7 @@ public class AppointmentServiceProxy
         {
             if (checkConditions)
             {
+                appointment.AppointmentDate = appointment.AppointmentDatePrint.ToDateTime(appointment.AppointmentTimePrint);
                 appointments.Add(appointment); // new appointment
                 requestedPatient?.Appointments.Add(appointment);
                 requestedPhysician?.Appointments.Add(appointment);
@@ -105,5 +106,15 @@ public class AppointmentServiceProxy
             appointments.Remove(appointmentToDelete);
         }
         return appointmentToDelete;
+    }
+
+    public void SortAppointmentsAscending()
+    {
+        appointments = appointments.OrderBy(p => p?.AppointmentDate).ToList();
+    }
+
+    public void SortAppointmentsDescending()
+    {
+        appointments = appointments.OrderByDescending(p => p?.AppointmentDate).ToList();
     }
 }
