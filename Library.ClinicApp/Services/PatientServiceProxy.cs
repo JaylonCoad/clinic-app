@@ -60,4 +60,14 @@ public class PatientServiceProxy
         patients.Remove(patientToDelete);
         return patientToDelete;
     }
+
+    public void SortPatientsAscending()
+    {
+        patients = patients.OrderBy(p => p?.Birthday).ToList();
+    }
+
+    public void SortPatientsDescending()
+    {
+        patients = patients.OrderByDescending(p => p?.Birthday).ToList();
+    }
 }

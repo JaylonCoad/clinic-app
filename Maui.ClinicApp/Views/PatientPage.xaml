@@ -24,18 +24,20 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}"/>
-                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked"/>
+                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" FontFamily="OpenSansSemibold" />
+                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked" FontFamily="OpenSansSemibold" />
                             </Grid>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button Text="Add Patient" Clicked="AddPatient"/>
-        <Button Text="Edit Patient" Clicked="EditPatient"/>
-        <Button Text="Delete Patient" Clicked="DeletePatient"/>
-        <Button Text="Create Appointment" Clicked="SendPatientToPhysicianPage"/>       
-        <Button Text="Back" Clicked="BackToHome"/>
+        <Button Text="Add Patient" Clicked="AddPatient" FontFamily="OpenSansSemibold"/>
+        <Button Text="Edit Patient" Clicked="EditPatient" FontFamily="OpenSansSemibold"/>
+        <Button Text="Delete Patient" Clicked="DeletePatient" FontFamily="OpenSansSemibold"/>
+        <Button Text="Create Appointment" Clicked="SendPatientToPhysicianPage" FontFamily="OpenSansSemibold"/>
+        <Button Text="Sort by Birthday (Ascending)" Clicked="SortByBirthdayAscending" FontFamily="OpenSansSemibold"/>
+        <Button Text="Sort by Birthday (Descending)" Clicked="SortByBirthdayDescending" FontFamily="OpenSansSemibold"/>
+        <Button Text="Back" Clicked="BackToHome" FontFamily="OpenSansSemibold"/>
     </VerticalStackLayout>
 </ContentPage>

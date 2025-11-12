@@ -9,17 +9,17 @@
             Text="Add Patient"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        <Label Text="Enter Name:"/>
+        <Label Text="Enter Name:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Name}"/>
-        <Label Text="Enter Race:"/>
+        <Label Text="Enter Race:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Race}"/>
-        <Label Text="Enter Gender:"/>
+        <Label Text="Enter Gender:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Gender}"/>
-        <Label Text="Enter Address:"/>
+        <Label Text="Enter Address:" FontFamily="OpenSansSemibold"/>
         <Entry Text="{Binding Address}"/>
-        <Label Text="Enter Birthday:"/>
+        <Label Text="Enter Birthday:" FontFamily="OpenSansSemibold"/>
         <DatePicker Date="{Binding Birthday}"/>
-        <Button Text="Add" Clicked="AddClicked" />
-        <Button Text="Back" Clicked="BackToPatientPage" />
+        <Button Text="Add" Clicked="AddClicked" FontFamily="OpenSansSemibold" />
+        <Button Text="Back" Clicked="BackToPatientPage" FontFamily="OpenSansSemibold" />
     </VerticalStackLayout>
 </ContentPage>

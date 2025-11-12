@@ -75,4 +75,16 @@ public partial class PatientPage : ContentPage
     {
         (BindingContext as PatientsViewModel)?.Refresh();
     }
+
+    private void SortByBirthdayAscending(object sender, EventArgs e)
+    {
+        (BindingContext as PatientsViewModel)?.SortByBirthdayAscending();
+        (BindingContext as PatientsViewModel)?.Refresh();
+    }
+
+    private void SortByBirthdayDescending(object sender, EventArgs e)
+    {
+        (BindingContext as PatientsViewModel)?.SortByBirthdayDescending();
+        (BindingContext as PatientsViewModel)?.Refresh();
+    }
 }

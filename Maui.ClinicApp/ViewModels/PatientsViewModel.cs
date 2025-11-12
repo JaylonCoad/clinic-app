@@ -14,8 +14,9 @@ public class PatientsViewModel : INotifyPropertyChanged
     {
         get
         {
-            return new ObservableCollection<PatientViewModel?>(PatientServiceProxy.Current.Patients.Select(b => new PatientViewModel (b)));
+            return new ObservableCollection<PatientViewModel?>(PatientServiceProxy.Current.Patients.Select(b => new PatientViewModel(b)));
         }
+        set {}
     }
     public void Refresh()
     {
@@ -31,6 +32,16 @@ public class PatientsViewModel : INotifyPropertyChanged
         SelectedPatient = null;
         NotifyPropertyChanged(nameof(Patients));
         NotifyPropertyChanged(nameof(SelectedPatient));
+    }
+
+    public void SortByBirthdayAscending()
+    {
+        PatientServiceProxy.Current.SortPatientsAscending();
+    }
+
+    public void SortByBirthdayDescending()
+    {
+        PatientServiceProxy.Current.SortPatientsDescending();
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

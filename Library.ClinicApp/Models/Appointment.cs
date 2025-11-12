@@ -62,6 +62,6 @@ public class Appointment
     }
     public override string ToString()
     {
-        return $"Appointment with Dr. {DisplayPhysicianName} for {DisplayPatientName} at {AppointmentTimePrint} on {AppointmentDatePrint}";
+        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint}";
     }
 }
