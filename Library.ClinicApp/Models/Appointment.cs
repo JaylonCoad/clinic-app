@@ -5,14 +5,14 @@ namespace Library.ClinicApp.Models;
 
 public class Appointment
 {
-    public string? Id { get; }
+    public string Id { get; }
     public string? PhysicianId { get; set; }
     public string? PatientId { get; set; }
-    //public List<string> Room { get; set; }
     public DateTime AppointmentDate { get; set; }
     public DateOnly AppointmentDatePrint => DateOnly.FromDateTime(AppointmentDate);
     public TimeSpan AppointmentTime { get; set; }
     public TimeOnly AppointmentTimePrint => TimeOnly.FromTimeSpan(AppointmentTime);
+    public string RoomNumber { get; set; }
 
     public string Display
     {
@@ -43,7 +43,7 @@ public class Appointment
     }
     public Appointment(string id)
     {
-        var appointmentCopy = AppointmentServiceProxy.Current.Appointments.FirstOrDefault(b => (b?.Id ?? "") == id);
+        var appointmentCopy = AppointmentServiceProxy.Current.Appointments.FirstOrDefault(b => b?.Id == id);
         if (appointmentCopy != null)
         {
             Id = appointmentCopy.Id;
@@ -51,7 +51,7 @@ public class Appointment
             PatientId = appointmentCopy.PatientId;
             AppointmentDate = appointmentCopy.AppointmentDate;
             AppointmentTime = appointmentCopy.AppointmentTime;
-            //Room = appointmentCopy.Room;
+            RoomNumber = appointmentCopy.RoomNumber;
         }
     }
     private static string GenerateId() // generates a random 8 character alphanumeric string ID for each object created, if this were a bigger application used by hundreds or thousands of users i would check for the same ID amongst all other patients and physicians but in the context of this assignment not really necessary
@@ -62,6 +62,6 @@ public class Appointment
     }
     public override string ToString()
     {
-        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint}";
+        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber}";
     }
 }
