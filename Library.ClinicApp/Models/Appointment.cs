@@ -1,3 +1,5 @@
+using System.Drawing;
+using System.Runtime.CompilerServices;
 using Library.ClinicApp.Services;
 
 namespace Library.ClinicApp.Models;
@@ -9,6 +11,7 @@ public class Appointment
     public string? PatientId { get; set; }
     public DateTime AppointmentDate { get; set; }
     public bool Completed { get; set; }
+    public bool NotCompleted => !Completed;
     public DateOnly AppointmentDatePrint => DateOnly.FromDateTime(AppointmentDate);
     public TimeSpan AppointmentTime { get; set; }
     public TimeOnly AppointmentTimePrint => TimeOnly.FromTimeSpan(AppointmentTime);
@@ -66,11 +69,13 @@ public class Appointment
     }
     public override string ToString()
     {
-        var completedPrint = "No";
-        if (Completed == true)
+        if (Completed)
         {
-            completedPrint = "Yes";
+            return $"Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Diagnosis: {Diagnosis} || Treatment: {Treatment} || Completed: Yes";
         }
-        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber} || Completed: {completedPrint}";
+        else
+        {
+            return $"Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber} || Completed: No";
+        }
     }
 }

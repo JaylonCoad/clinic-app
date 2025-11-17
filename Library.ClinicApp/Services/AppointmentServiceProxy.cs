@@ -180,9 +180,13 @@ public class AppointmentServiceProxy
     {
         appointment.Completed = true;
         var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
-        var index = Appointments.IndexOf(existingAppointment);
-        Appointments.RemoveAt(index);
-        Appointments.Insert(index, appointment);
+        if (existingAppointment != null)
+        {
+            var index = Appointments.IndexOf(existingAppointment);
+            Appointments.RemoveAt(index);
+            Appointments.Insert(index, appointment);
+            RoomSchedule[appointment.RoomNumber].Remove(appointment.AppointmentDate); // room becomes available when an appointment is marked as completed
+        }
         return appointment;
     }
     public void SortAppointmentsAscending()

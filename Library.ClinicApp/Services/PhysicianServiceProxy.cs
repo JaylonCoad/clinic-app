@@ -59,7 +59,7 @@ public class PhysicianServiceProxy
     public Physician? Delete(string id)
     {
         var physicianToDelete = physicians.Where(b => b != null).FirstOrDefault(b => (b?.Id ?? "") == id);
-        AppointmentServiceProxy.Current.Appointments.RemoveAll(p => p.PhysicianId == physicianToDelete?.Id);
+        AppointmentServiceProxy.Current.Appointments.RemoveAll(p => p.PhysicianId == physicianToDelete?.Id && !p.Completed);
         physicians.Remove(physicianToDelete);
         return physicianToDelete;
     }

@@ -5,7 +5,7 @@
              NavigatedTo="ContentPage_NavigatedTo"
              Title="AppointmentPage">
     <VerticalStackLayout>
-        <Label 
+        <Label
             Text="Appointment Page"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
@@ -18,14 +18,14 @@
                                 <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Label Text="{Binding Model.Display}" Grid.Column="0"/>
+                            <Label Text="{Binding Model.Display}" BackgroundColor="{Binding AppointmentColor}" Grid.Column="0"/>
                             <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
-                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" FontFamily="OpenSansSemibold"/>
-                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked" FontFamily="OpenSansSemibold"/>
+                                <Button Text="Edit" Grid.Column="0" Command="{Binding EditCommand}" CommandParameter="{Binding}" FontFamily="OpenSansSemibold" IsEnabled="{Binding NotCompleted}"/>
+                                <Button Text="Delete" Grid.Column="1" Command="{Binding DeleteCommand}" CommandParameter="{Binding}" Clicked="RefreshClicked" FontFamily="OpenSansSemibold" IsEnabled="{Binding NotCompleted}"/>
                             </Grid>
                         </Grid>
                     </ViewCell>
@@ -33,8 +33,8 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button Text="Add Appointment" Clicked="AddAppointment" FontFamily="OpenSansSemibold"/>
-        <Button Text="Edit Appointment" Clicked="EditAppointment" FontFamily="OpenSansSemibold"/>
-        <Button Text="Delete Appointment" Clicked="DeleteAppointment" FontFamily="OpenSansSemibold"/>
+        <Button Text="Edit Appointment" IsEnabled="{Binding NotCompleted}" Clicked="EditAppointment" FontFamily="OpenSansSemibold"/>
+        <Button Text="Delete Appointment" IsEnabled="{Binding NotCompleted}" Clicked="DeleteAppointment" FontFamily="OpenSansSemibold"/>
         <Button Text="Complete Appointment" Clicked="CheckoutAppointment" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Appointment Date (Ascending)" Clicked="SortByAppointmentAscending" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Appointment Date (Descending)" Clicked="SortByAppointmentDescending" FontFamily="OpenSansSemibold"/>
