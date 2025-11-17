@@ -54,13 +54,13 @@ public class AppointmentServiceProxy
         {
             return null;
         }
-        var requestedPhysician = PhysicianServiceProxy.Current.Physicians.FirstOrDefault(p => p?.Id == appointment.PhysicianId);
-        var requestedPatient = PatientServiceProxy.Current.Patients.FirstOrDefault(p => p?.Id == appointment.PatientId);
+        var requestedPhysician = PhysicianServiceProxy.Current.PhysicianById(appointment.PhysicianId!);
+        var requestedPatient = PatientServiceProxy.Current.PatientById(appointment.PatientId!);
         if (requestedPatient == null || requestedPhysician == null)
         {
             return null;
         }
-        var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
+        var existingAppointment = AppointmentById(appointment.Id);
         var checkConditions = IsTimeValid(appointment.AppointmentTimePrint) && IsDateValid(appointment.AppointmentDatePrint) && IsPhysicianAvailable(requestedPhysician.Id, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint) && IsPatientAvailable(requestedPatient.Id, appointment.AppointmentDatePrint, appointment.AppointmentTimePrint);
         bool found = false;
         if (checkConditions)
@@ -68,18 +68,22 @@ public class AppointmentServiceProxy
             appointment.AppointmentDate = appointment.AppointmentDatePrint.ToDateTime(appointment.AppointmentTimePrint);
             found = CheckForRoom(appointment);
         }
+        if (!found)
+        {
+            return null;
+        }
         if (existingAppointment != null) // existing appointment found, so edit instead of add
         {
             if (checkConditions && found)
             {
                 RoomSchedule[existingAppointment.RoomNumber].Remove(existingAppointment.AppointmentDate);
-                requestedPatient?.Appointments.Remove(existingAppointment);
-                requestedPhysician?.Appointments.Remove(existingAppointment);
+                requestedPatient?.Appointments.RemoveAll(p => p.Id == existingAppointment.Id);
+                requestedPhysician?.Appointments.RemoveAll(p => p.Id == existingAppointment.Id);
                 var index = Appointments.IndexOf(existingAppointment);
                 Appointments.RemoveAt(index);
                 Appointments.Insert(index, appointment);
-                requestedPatient?.Appointments.Add(appointment);
-                requestedPhysician?.Appointments.Add(appointment);
+                requestedPatient!.Appointments.Add(appointment);
+                requestedPhysician!.Appointments.Add(appointment);
                 RoomSchedule[appointment.RoomNumber].Add(appointment.AppointmentDate);
             }
         }
@@ -95,8 +99,8 @@ public class AppointmentServiceProxy
                 appointment.Completed = false;
                 value.Add(appointment.AppointmentDate);
                 appointments.Add(appointment); // new appointment
-                requestedPatient?.Appointments.Add(appointment);
-                requestedPhysician?.Appointments.Add(appointment);
+                requestedPatient.Appointments.Add(appointment);
+                requestedPhysician.Appointments.Add(appointment);
             }
         }
         return appointment;
@@ -118,7 +122,7 @@ public class AppointmentServiceProxy
     }
     public bool IsPhysicianAvailable(string physicianId, DateOnly newAppointmentDate, TimeOnly newAppointmentTime)
     {
-        var physician = PhysicianServiceProxy.Current.Physicians.FirstOrDefault(p => p?.Id == physicianId);
+        var physician = PhysicianServiceProxy.Current.PhysicianById(physicianId);
         if (physician?.Appointments == null || physician.Appointments.Count == 0)
         {
             return true;
@@ -128,7 +132,7 @@ public class AppointmentServiceProxy
     }
     public bool IsPatientAvailable(string patientId, DateOnly newAppointmentDate, TimeOnly newAppointmentTime)
     {
-        var patient = PatientServiceProxy.Current.Patients.FirstOrDefault(p => p?.Id == patientId);
+        var patient = PatientServiceProxy.Current.PatientById(patientId);
         if (patient?.Appointments == null || patient.Appointments.Count == 0)
         {
             return true;
@@ -138,16 +142,16 @@ public class AppointmentServiceProxy
     }
     public Appointment? Delete(string id)
     {
-        var appointmentToDelete = appointments.FirstOrDefault(b => b.Id == id);
+        var appointmentToDelete = AppointmentById(id);
         if (appointmentToDelete != null)
         {
-            var patient = PatientServiceProxy.Current.Patients.FirstOrDefault(p => p?.Id == appointmentToDelete.PatientId);
-            var physician = PhysicianServiceProxy.Current.Physicians.FirstOrDefault(p => p?.Id == appointmentToDelete.PhysicianId);
-            patient?.Appointments.Remove(appointmentToDelete);
-            physician?.Appointments.Remove(appointmentToDelete);
+            var patient = PatientServiceProxy.Current.PatientById(appointmentToDelete.PatientId!);
+            var physician = PhysicianServiceProxy.Current.PhysicianById(appointmentToDelete.PhysicianId!);
+            patient?.Appointments.RemoveAll(p => p.Id == id);
+            physician?.Appointments.RemoveAll(p => p.Id == id);
             // remove the time from the list at the room number of the appointment
             RoomSchedule[appointmentToDelete.RoomNumber].Remove(appointmentToDelete.AppointmentDate);
-            appointments.Remove(appointmentToDelete);
+            appointments.RemoveAll(p => p.Id == appointmentToDelete.Id);
         }
         return appointmentToDelete;
     }
@@ -179,16 +183,32 @@ public class AppointmentServiceProxy
     public Appointment CompleteAppointment(Appointment appointment)
     {
         appointment.Completed = true;
-        var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
+        var existingAppointment = AppointmentById(appointment.Id);
         if (existingAppointment != null)
         {
             var index = Appointments.IndexOf(existingAppointment);
             Appointments.RemoveAt(index);
             Appointments.Insert(index, appointment);
             RoomSchedule[appointment.RoomNumber].Remove(appointment.AppointmentDate); // room becomes available when an appointment is marked as completed
+            var patient = PatientServiceProxy.Current.PatientById(appointment.PatientId!);
+            var physician = PhysicianServiceProxy.Current.PhysicianById(appointment.PhysicianId!);
+            patient!.CompletedAppointments.Add(appointment);
+            physician!.CompletedAppointments.Add(appointment);
+            patient.Appointments.RemoveAll(p => p.Id == appointment.Id);
+            physician.Appointments.RemoveAll(p => p.Id == appointment.Id);
         }
         return appointment;
     }
+
+    public Appointment? AppointmentById(string appointmentId)
+    {
+        if (string.IsNullOrEmpty(appointmentId))
+        {
+            return null;
+        }
+        return appointments.FirstOrDefault(p => p?.Id == appointmentId);
+    }
+
     public void SortAppointmentsAscending()
     {
         appointments = appointments.OrderBy(p => p?.AppointmentDate).ToList();

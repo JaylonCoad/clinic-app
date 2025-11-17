@@ -47,7 +47,7 @@ public class Appointment
     }
     public Appointment(string id)
     {
-        var appointmentCopy = AppointmentServiceProxy.Current.Appointments.FirstOrDefault(b => b?.Id == id);
+        var appointmentCopy = AppointmentServiceProxy.Current.AppointmentById(id);
         if (appointmentCopy != null)
         {
             Id = appointmentCopy.Id;
@@ -71,11 +71,11 @@ public class Appointment
     {
         if (Completed)
         {
-            return $"Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Diagnosis: {Diagnosis} || Treatment: {Treatment} || Completed: Yes";
+            return $"Physician: {DisplayPhysicianName} | Patient: {DisplayPatientName} | Date & Time: {AppointmentDatePrint}, {AppointmentTimePrint} | Diagnosis: {Diagnosis} | Treatment: {Treatment} | Completed: Yes";
         }
         else
         {
-            return $"Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber} || Completed: No";
+            return $"Physician: {DisplayPhysicianName} | Patient: {DisplayPatientName} | Date & Time: {AppointmentDatePrint}, {AppointmentTimePrint} | Location: {RoomNumber} | Completed: No";
         }
     }
 }

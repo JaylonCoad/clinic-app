@@ -62,6 +62,15 @@ public class PatientServiceProxy
         return patientToDelete;
     }
 
+    public Patient? PatientById(string patientId)
+    {
+        if (string.IsNullOrEmpty(patientId))
+        {
+            return null;
+        }
+        return patients.FirstOrDefault(p => p?.Id == patientId);
+    }
+
     public void SortPatientsAscending()
     {
         patients = patients.OrderBy(p => p?.Birthday).ToList();

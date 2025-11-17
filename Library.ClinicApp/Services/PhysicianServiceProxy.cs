@@ -64,6 +64,15 @@ public class PhysicianServiceProxy
         return physicianToDelete;
     }
 
+    public Physician? PhysicianById(string physicianId)
+    {
+        if (string.IsNullOrEmpty(physicianId))
+        {
+            return null;
+        }
+        return physicians.FirstOrDefault(p => p?.Id == physicianId);
+    }
+
     public void SortPhysiciansAscending()
     {
         physicians = physicians.OrderBy(p => p?.Graduation).ToList();
