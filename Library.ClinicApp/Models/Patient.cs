@@ -10,8 +10,6 @@ public class Patient
     public string? Race { get; set; }
     public string? Gender { get; set; }
     public string? Address { get; set; }
-    public List<string> Diagnoses { get; set; } = [];
-    public List<string> Prescriptions { get; set; } = [];
     public List<Appointment> Appointments { get; set; } = [];
     public DateTime Birthday { get; set; }
     public DateOnly BirthdayPrint => DateOnly.FromDateTime(Birthday);
@@ -37,8 +35,6 @@ public class Patient
             Race = patientCopy.Race;
             Gender = patientCopy.Gender;
             Address = patientCopy.Address;
-            Diagnoses = patientCopy.Diagnoses;
-            Prescriptions = patientCopy.Prescriptions;
             Appointments = patientCopy.Appointments;
             Birthday = patientCopy.Birthday;
         }

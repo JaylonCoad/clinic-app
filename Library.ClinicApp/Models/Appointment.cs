@@ -1,4 +1,3 @@
-using System;
 using Library.ClinicApp.Services;
 
 namespace Library.ClinicApp.Models;
@@ -9,11 +8,13 @@ public class Appointment
     public string? PhysicianId { get; set; }
     public string? PatientId { get; set; }
     public DateTime AppointmentDate { get; set; }
+    public bool Completed { get; set; }
     public DateOnly AppointmentDatePrint => DateOnly.FromDateTime(AppointmentDate);
     public TimeSpan AppointmentTime { get; set; }
     public TimeOnly AppointmentTimePrint => TimeOnly.FromTimeSpan(AppointmentTime);
     public string RoomNumber { get; set; }
-
+    public string? Diagnosis { get; set; }
+    public string? Treatment { get; set; }
     public string Display
     {
         get
@@ -52,6 +53,9 @@ public class Appointment
             AppointmentDate = appointmentCopy.AppointmentDate;
             AppointmentTime = appointmentCopy.AppointmentTime;
             RoomNumber = appointmentCopy.RoomNumber;
+            Completed = appointmentCopy.Completed;
+            Diagnosis = appointmentCopy.Diagnosis;
+            Treatment = appointmentCopy.Treatment;
         }
     }
     private static string GenerateId() // generates a random 8 character alphanumeric string ID for each object created, if this were a bigger application used by hundreds or thousands of users i would check for the same ID amongst all other patients and physicians but in the context of this assignment not really necessary
@@ -62,6 +66,11 @@ public class Appointment
     }
     public override string ToString()
     {
-        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber}";
+        var completedPrint = "No";
+        if (Completed == true)
+        {
+            completedPrint = "Yes";
+        }
+        return $"ID: {Id} || Physician: {DisplayPhysicianName} || Patient: {DisplayPatientName} || Date: {AppointmentDatePrint} || Time: {AppointmentTimePrint} || Location: {RoomNumber} || Completed: {completedPrint}";
     }
 }

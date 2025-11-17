@@ -1,6 +1,3 @@
-using System;
-using System.Runtime.Serialization;
-using System.Text.Json.Serialization;
 using Library.ClinicApp.Models;
 
 namespace Library.ClinicApp.Services;
@@ -95,6 +92,7 @@ public class AppointmentServiceProxy
                     value = [];
                     RoomSchedule[appointment.RoomNumber] = value;
                 }
+                appointment.Completed = false;
                 value.Add(appointment.AppointmentDate);
                 appointments.Add(appointment); // new appointment
                 requestedPatient?.Appointments.Add(appointment);
@@ -177,6 +175,15 @@ public class AppointmentServiceProxy
             }
         }
         return foundRoom;
+    }
+    public Appointment CompleteAppointment(Appointment appointment)
+    {
+        appointment.Completed = true;
+        var existingAppointment = Appointments.FirstOrDefault(p => p?.Id == appointment.Id);
+        var index = Appointments.IndexOf(existingAppointment);
+        Appointments.RemoveAt(index);
+        Appointments.Insert(index, appointment);
+        return appointment;
     }
     public void SortAppointmentsAscending()
     {

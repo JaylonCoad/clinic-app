@@ -70,6 +70,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.Appoi
 build_metadata.AdditionalFiles.TargetPath = Views/AppointmentPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views/AppointmentPage.xaml
 
+[/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/CheckoutAppointment.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.CheckoutAppointment.xaml
+build_metadata.AdditionalFiles.TargetPath = Views/CheckoutAppointment.xaml
+build_metadata.AdditionalFiles.RelativePath = Views/CheckoutAppointment.xaml
+
 [/Users/jayloncoad/Desktop/COP4870/ClinicApp/Maui.ClinicApp/Views/PatientPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Maui.ClinicApp.Views.PatientPage.xaml

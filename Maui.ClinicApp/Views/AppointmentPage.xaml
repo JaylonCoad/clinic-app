@@ -35,6 +35,7 @@
         <Button Text="Add Appointment" Clicked="AddAppointment" FontFamily="OpenSansSemibold"/>
         <Button Text="Edit Appointment" Clicked="EditAppointment" FontFamily="OpenSansSemibold"/>
         <Button Text="Delete Appointment" Clicked="DeleteAppointment" FontFamily="OpenSansSemibold"/>
+        <Button Text="Complete Appointment" Clicked="CheckoutAppointment" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Appointment Date (Ascending)" Clicked="SortByAppointmentAscending" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Appointment Date (Descending)" Clicked="SortByAppointmentDescending" FontFamily="OpenSansSemibold"/>
         <Button Text="Back" Clicked="BackToHome" FontFamily="OpensSansSemibold"/>

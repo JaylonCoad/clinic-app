@@ -11,8 +11,8 @@
                 Text="Clinic App"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-            <Button Text="Patient View" Clicked="GoToPatientView" FontFamily="OpenSansSemibold"/>
             <Button Text="Physician View" Clicked="GoToPhysicianView" FontFamily="OpenSansSemibold"/>
+            <Button Text="Patient View" Clicked="GoToPatientView" FontFamily="OpenSansSemibold"/>
             <Button Text="Appointment View" Clicked="GoToAppointmentView" FontFamily="OpenSansSemibold"/>
         </VerticalStackLayout>
     </ScrollView>

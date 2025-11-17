@@ -1,4 +1,3 @@
-using Maui.ClinicApp.ViewModels;
 using Library.ClinicApp.Models;
 using Library.ClinicApp.Services;
 

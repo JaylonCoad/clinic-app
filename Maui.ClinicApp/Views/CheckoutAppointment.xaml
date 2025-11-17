@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Maui.ClinicApp.Views.CheckoutAppointment"
+             NavigatedTo="ContentPage_NavigatedTo"
+             Title="CheckoutAppointment">
+    <VerticalStackLayout>
+        <Label 
+            Text="Checkout Appointment"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Label Text="Enter Diagnosis:" FontFamily="OpenSansSemibold"/>
+        <Editor Text="{Binding Diagnosis}" HeightRequest="120"  Placeholder="Enter diagnosis details..."/>
+        <Label Text="Enter Treatment:" FontFamily="OpenSansSemibold"/>
+        <Editor Text="{Binding Treatment}" HeightRequest="120" Placeholder="Enter treatment details..."/>
+        <Button Text="Mark as Completed" FontFamily="OpenSansSemibold" Clicked="CompleteAppointment"/>
+        <Button Text="Cancel" FontFamily="OpenSansSemibold" Clicked="CancelClicked"/>
+    </VerticalStackLayout>
+</ContentPage>

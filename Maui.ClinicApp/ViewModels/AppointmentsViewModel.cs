@@ -1,8 +1,6 @@
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Library.ClinicApp.Models;
 using Library.ClinicApp.Services;
 
 namespace Maui.ClinicApp.ViewModels;

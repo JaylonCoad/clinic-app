@@ -62,4 +62,11 @@ public partial class AppointmentPage : ContentPage
         (BindingContext as AppointmentsViewModel)?.SortByAppointmentDateDescending();
         (BindingContext as AppointmentsViewModel)?.Refresh();
     }
+
+    private void CheckoutAppointment(object sender, EventArgs e)
+    {
+        var selectedId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Model?.Id;
+        Shell.Current.GoToAsync($"//CheckoutAppointment?appointmentToEditId={selectedId}");
+        (BindingContext as AppointmentsViewModel)?.Refresh();
+    }
 }
