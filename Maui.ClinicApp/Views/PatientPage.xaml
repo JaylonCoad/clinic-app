@@ -35,7 +35,7 @@
         <Button Text="Add Patient" Clicked="AddPatient" FontFamily="OpenSansSemibold"/>
         <Button Text="Edit Patient" Clicked="EditPatient" FontFamily="OpenSansSemibold"/>
         <Button Text="Delete Patient" Clicked="DeletePatient" FontFamily="OpenSansSemibold"/>
-        <Button Text="Create Appointment" BackgroundColor="Blue" Clicked="SendPatientToPhysicianPage" FontFamily="OpenSansSemibold"/>
+        <Button Text="Create Appointment" Clicked="SendPatientToPhysicianPage" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Birthday (Ascending)" Clicked="SortByBirthdayAscending" FontFamily="OpenSansSemibold"/>
         <Button Text="Sort by Birthday (Descending)" Clicked="SortByBirthdayDescending" FontFamily="OpenSansSemibold"/>
         <Button Text="Back" Clicked="BackToHome" FontFamily="OpenSansSemibold"/>
