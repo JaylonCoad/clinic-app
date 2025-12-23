@@ -65,6 +65,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="../Library.ClinicApp/Library.ClinicApp.csproj" />
+	  <ProjectReference Include="..\Enterprise\Enterprise.ClinicApp\Enterprise.ClinicApp.csproj" />
 	</ItemGroup>
 
 </Project>

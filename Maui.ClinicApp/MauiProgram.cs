@@ -1,4 +1,5 @@
-﻿using Maui.ClinicApp.ViewModels;
+﻿using Enterprise.ClinicApp;
+using Maui.ClinicApp.ViewModels;
 using Maui.ClinicApp.Views;
 using Microsoft.Extensions.Logging;
 
@@ -18,6 +19,9 @@ public static class MauiProgram
             });
         builder.Services.AddSingleton<PhysiciansViewModel>(); // ViewModel we want to access
         builder.Services.AddSingleton<PatientPage>(); // page we want to access the ViewModel ^
+        builder.Services.AddSingleton<HttpClient>();
+        builder.Services.AddSingleton<AppointmentEC>();
+
 
 #if DEBUG
 		builder.Logging.AddDebug();

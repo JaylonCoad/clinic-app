@@ -6,7 +6,7 @@ using API.ClinicApp.Data;
 namespace API.ClinicApp.Controllers;
 
 [ApiController]
-[Route("[controller]")] // Maps to http://localhost:xxxx/Patients
+[Route("api/[controller]")] // Maps to http://localhost:xxxx/Patients
 public class PatientsController : ControllerBase
 {
     private readonly ClinicDbContext _context;
